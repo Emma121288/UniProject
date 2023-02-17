@@ -1,10 +1,9 @@
 stages:
-  - test
-  
-validate_branch_name:
-  stage: test
+  - validate
+
+validate_branch_naming:
+  stage: validate
+  image: python: 3.9
   script:
-    - python validate_branch_name.py
-    
-  only:
-    -branches
+    - pip install -r requirements.txt
+    - python validate_branch_naming.py
