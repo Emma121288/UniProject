@@ -1,0 +1,10 @@
+stages:
+  - test
+  
+validate_branch_name:
+  stage: test
+  script:
+    - python validate_branch_name.py
+    
+  only:
+    -branches
