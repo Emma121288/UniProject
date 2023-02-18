@@ -43,9 +43,15 @@ def validate_branch_name(branch_name):
 
     return True
 
+# exmaple valid branch names
 example_branch_name = "bacchus/feature/721023-D278ImplementnewFeature"
 example_branch_name2 = "bacchus/feature/55325-AbcdefGhijklMnopqrs"
+
+# exmaple invalid branch names
 example_branch_name_breaking_convention = "bacchus12345/featuretobeimplemented/44324-abcdef"
+example_branch_name_breaking_convention = "bacchus12345/featuretobeimplemented/44324-abcdef-ghijklmnop"
+
+# validate script
 
 if validate_branch_name(example_branch_name):
     print("Valid branch name")
