@@ -1,12 +1,12 @@
-image: python: latest
+image: python:latest
 
 cache:
   paths:
     - target/
 
 build:
-  stage: build script:
-    - python compile
+  stage: build
+  script: python compile
 
 test:
   stage: test
