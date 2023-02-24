@@ -1,0 +1,10 @@
+image: python:latest
+
+stages:
+  - test
+
+test:
+  stage: test
+  script:
+    - python ./branch/validate_branch_naming.py
+    - python ./environment/validate_environment_naming.py
