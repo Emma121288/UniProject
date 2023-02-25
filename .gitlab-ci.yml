@@ -7,4 +7,3 @@ test:
   stage: test
   script:
     - python ./branch/validate_branch_naming.py
-
