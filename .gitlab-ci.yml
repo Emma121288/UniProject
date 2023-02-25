@@ -11,7 +11,7 @@ test ./branch/validate_branch_naming.py:
   script:
     - python ./branch/validate_branch_naming.py
 
-test ./repo/validate/_repo_naming.py:
+test ./repository/validate/_repository_naming.py:
   stage: test ./repository/validate_repository_naming.py
   script:
     - python ./repository/validate_repository_naming.py
