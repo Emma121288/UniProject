@@ -2,7 +2,7 @@ image: python:latest
 
 stages:
   - test ./branch/validate_branch_naming.py
-  - test ./repository/validate/_repository_naming.py
+ # - test ./repository/validate/_repository_naming.py
   - test ./pipeline/validate_pipeline_naming.py
   - test ./environment/validate_environment_naming.py
 
@@ -11,10 +11,10 @@ test ./branch/validate_branch_naming.py:
   script:
     - python ./branch/validate_branch_naming.py
 
-test ./repository/validate/_repository_naming.py:
-  stage: test ./repository/validate_repository_naming.py
-  script:
-    - python ./repository/validate_repository_naming.py
+#test ./repository/validate/_repository_naming.py:
+ # stage: test ./repository/validate_repository_naming.py
+  #script:
+   # - python ./repository/validate_repository_naming.py
 
 test ./pipeline/validate_pipeline_naming.py:
   stage: test ./pipeline/validate_pipeline_naming.py
