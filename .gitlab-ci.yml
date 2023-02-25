@@ -2,7 +2,7 @@ image: python:latest
 
 stages:
   - test ./branch/validate_branch_naming.py
-  - test ./repo/validate/_repo_naming.py
+  - test ./repository/validate/_repository_naming.py
   - test ./pipeline/validate_pipeline_naming.py
   - test ./environment/validate_environment_naming.py
 
