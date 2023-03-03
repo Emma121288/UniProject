@@ -42,6 +42,18 @@ def validate_branch_name(branch_name):
     if not task_description_match:
         return False
 
+    #validate branch name
+    if work_category == 'feature':
+        if task_description.lower() not in acronym_set:
+            return False
+    elif work_category in category:
+        pass
+    else:
+        return False
+
+    if branch_name == 'main':
+        return True
+
     return True
 
 if __name__ == "__main__":
