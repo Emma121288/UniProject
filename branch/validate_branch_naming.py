@@ -44,7 +44,7 @@ def validate_branch_name(branch_name):
 
     return True
 
-if branch_name == "main":
+if __name__ == "__main__":
     branch_name = os.environ.get("CI_COMMIT_BRANCH")
     if branch_name:
         if validate_branch_name(branch_name):
