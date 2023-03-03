@@ -5,6 +5,9 @@ acronym_set = ['bacchus','atlas','echo', 'nyx']
 category = ['feature', 'story', 'bug', 'spike'] 
 
 def validate_branch_name(branch_name):
+    if branch_name == 'main':
+        return True
+
     branch_name_split = branch_name.split("/")
     if len(branch_name_split) != 3:
         return False
@@ -50,9 +53,6 @@ def validate_branch_name(branch_name):
         pass
     else:
         return False
-
-    if branch_name == 'main':
-        return True
 
     return True
 
