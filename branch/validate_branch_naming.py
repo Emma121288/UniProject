@@ -1,12 +1,12 @@
 import os
 import re
-from configparser import ConfigParser
+import configparser
 
-config = ConfigParser()
+config = configparser.ConfigParser()
 config.read('config.ini')
 
-acronym_set = set(config.get('settings', 'acronym_set').split(','))
-category = set(config.get('settings', 'category').split(','))
+acronym_set = config.get('branch', 'acronym_set').split(',')
+category = config.get('branch', 'category').split(',')
 
 def validate_branch_name(branch_name):
     branch_name_split = branch_name.split("/")
