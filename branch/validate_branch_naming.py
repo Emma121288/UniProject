@@ -68,3 +68,28 @@ if __name__ == "__main__":
     else:
         print("CI_COMMIT_BRANCH environment variable is not set")
         exit(1)
+
+ # exmaple valid branch names
+example_branch_name = "bacchus/feature/721023-D278ImplementnewFeature"
+example_branch_name2 = "bacchus/feature/55325-AbcdefGhijklMnopqrs"   
+
+# exmaple invalid branch names
+example_branch_name_breaking_convention = "bacchus12345/featuretobeimplemented/44324-abcdef"
+example_branch_name_breaking_convention = "bacchus12345/featuretobeimplemented/44324-abcdef-ghijklmnop"
+
+# validate script
+
+if validate_branch_name(example_branch_name):
+    print("Valid branch name")
+else:
+    print("Invalid branch name")
+
+if validate_branch_name(example_branch_name2):
+    print("Valid branch name")
+else:
+    print("Invalid branch name")
+
+if validate_branch_name(example_branch_name_breaking_convention):
+    print("Valid branch name")
+else:
+    print("Invalid branch name")
