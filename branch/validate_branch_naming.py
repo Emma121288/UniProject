@@ -1,13 +1,14 @@
 import os
 import re
+from configparser import ConfigParser
 
-acronym_set = ['bacchus','atlas','echo', 'nyx']
-category = ['feature', 'story', 'bug', 'spike'] 
+config = ConfigParser()
+config.read('config.ini')
+
+acronym_set = set(config.get('settings', 'acronym_set').split(','))
+category = set(config.get('settings', 'category').split(','))
 
 def validate_branch_name(branch_name):
-    if branch_name == 'main':
-        return True
-
     branch_name_split = branch_name.split("/")
     if len(branch_name_split) != 3:
         return False
@@ -53,6 +54,9 @@ def validate_branch_name(branch_name):
         pass
     else:
         return False
+
+    if branch_name == 'main':
+        return True
 
     return True
 
