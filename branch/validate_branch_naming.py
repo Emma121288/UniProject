@@ -50,10 +50,7 @@ def validate_branch_name(branch_name):
         return False
 
     #validate branch name
-    if work_category == 'feature':
-        if task_description.lower() not in acronym_set:
-            return False
-    elif work_category in category:
+    if work_category in category:
         pass
     else:
         return False
