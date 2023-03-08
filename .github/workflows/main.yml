@@ -9,13 +9,14 @@ jobs:
     runs-on: macos-latest
     
     env:
-      PROJECT_PATH: ./UniProject
       CI_COMMIT_BRANCH: ${{ github.head_ref }}
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
       with:
-        repository: 'Emma121288/UniProject'
+        repository: Emma121288/UniProject
+        path: UniProject
+        set-safe-directory: 'false'
 
     - name: Set up Python
       uses: actions/setup-python@v2
@@ -30,5 +31,3 @@ jobs:
     - name: Validate branch name
       run: |
         python ./branch/validate_branch_naming.py
-      working-directory: ${{ github.workspace }}/${{ env.PROJECT_PATH }}
-
