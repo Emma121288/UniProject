@@ -1,0 +1,25 @@
+name: Validate Branch Naming
+on:
+  push:
+    branches:
+      - '*'
+      
+
+jobs:
+  validate_branch_naming:
+    runs-on: ubuntu-latest
+    steps:
+    
+      - name: Set CI_COMMIT_BRANCH environment variable
+        run: echo "CI_COMMIT_BRANCH=$(echo ${GITHUB_REF#refs/heads/})" >> $GITHUB_ENV
+
+      - name: Checkout Code
+        uses: actions/checkout@v2
+      - name: Install Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.11
+      - name: Install Dependencies
+        run: pip install -r requirements.txt
+      - name: Validate Branch Naming
+        run: python ./branch/validate_branch_naming.py
