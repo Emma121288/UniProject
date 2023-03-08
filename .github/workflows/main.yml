@@ -1,20 +1,32 @@
-name: Validate Branch Naming
+name: Validate Branch Naming Convention
+
 on:
   push:
-    branches:
-      - '*'
+    branches: [main]
 
 jobs:
-  validate_branch_naming:
+  validate_branch_name:
     runs-on: macos-latest
+    
+    env:
+      PROJECT_PATH: ./UniProject
+      CI_COMMIT_BRANCH: ${{ github.head_ref }}
+
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
-      - name: Install Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.11
-      - name: Install Dependencies
-        run: pip install -r requirements.txt
-      - name: Validate Branch Naming
-        run: python ./branch/validate_branch_naming.py
+    - uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install configparser
+        
+    - name: Validate branch name
+      run: |
+        python ./branch/validate_branch_naming.py
+      working-directory: ${{ github.workspace }}/${{ env.PROJECT_PATH }}
+
