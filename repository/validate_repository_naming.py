@@ -21,6 +21,18 @@ def validate_repo_name(repo_name):
     
     return True
 
+if __name__ == "__main__":
+    repo_name = os.environ.get("CI_COMMIT_REPO")
+    if repo_name:
+        if validate_repo_name(repo_name):
+            print(f"Repo name '{repo_name}' is valid")
+        else:
+            print(f"Repo name '{repo_name}' is invalid")
+            exit(1)
+    else:
+        print("CI_COMMIT_REPO environment variable is not set")
+        exit(1)
+
 # Example repo names
 repo_name1 = "Security.Infrastructure"
 repo_name2 = "Data.Config"
