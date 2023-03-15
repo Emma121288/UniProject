@@ -21,8 +21,15 @@ jobs:
           python-version: 3.11
       - name: Install Dependencies
         run: pip install -r requirements.txt
+        
       - name: Validate Branch Naming
         run: python ./branch/validate_branch_naming.py
-             python ./branch/validate_repository_naming.py
-             python ./branch/validate_environment_naming.py
-             python ./branch/validate_pipeline_naming.py
+        
+      - name: Validate Respository Naming
+        run:  python ./branch/validate_repository_naming.py
+        
+      - name: Validate Environment Naming 
+        run:  python ./branch/validate_environment_naming.py
+        
+      - name: Validate Pipeline Naming
+        run:  python ./branch/validate_pipeline_naming.py
