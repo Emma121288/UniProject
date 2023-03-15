@@ -26,4 +26,4 @@ example_environment_name3 = "qa-001"
 # print results
 print(validate_environment_name(example_environment_name1))
 print(validate_environment_name(example_environment_name2))
-print(validate_environment_name3(example_environment_name3))
+print(validate_environment_name(example_environment_name3))
