@@ -1,4 +1,8 @@
+95 lines (76 sloc)  2.71 KB
+
+import os
 import re
+# from configparser import ConfigParser
 
 def validate_repo_name(repo_name):
     # split the repo name into two parts: the area of the company and the description of what the repo is for
