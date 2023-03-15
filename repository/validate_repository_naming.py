@@ -1,6 +1,5 @@
 import os
 import re
-# from configparser import ConfigParser
 
 def validate_repo_name(repo_name):
     # split the repo name into two parts: the area of the company and the description of what the repo is for
@@ -24,6 +23,7 @@ def validate_repo_name(repo_name):
     return True
 
 if __name__ == "__main__":
+    os.environ["CI_COMMIT_REPO"] = "Security.Infrastructure"  # replace with your repo name
     repo_name = os.environ.get("CI_COMMIT_REPO")
     if repo_name:
         if validate_repo_name(repo_name):
@@ -38,7 +38,7 @@ if __name__ == "__main__":
 # Example repo names
 repo_name1 = "Security.Infrastructure"
 repo_name2 = "Data.Config"
-repo_name3= "AI.PE"
+repo_name3 = "AI.PE"
 repo_name4 = "Security.Data.Infrastructure"
 
 # print results
@@ -46,3 +46,4 @@ print(validate_repo_name(repo_name1))
 print(validate_repo_name(repo_name2))
 print(validate_repo_name(repo_name3))
 print(validate_repo_name(repo_name4))
+
