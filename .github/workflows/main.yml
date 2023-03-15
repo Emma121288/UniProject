@@ -27,3 +27,5 @@ jobs:
         run: python ./repository/validate_repository_naming.py
       - name: Validate Environment Naming
         run: python ./environment/validate_environment_naming.py
+      - name: Validate Pipeline Naming
+        run: python ./pipeline/validate_pipeline_naming.py
