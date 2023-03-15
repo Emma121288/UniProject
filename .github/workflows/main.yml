@@ -23,3 +23,5 @@ jobs:
         run: pip install -r requirements.txt
       - name: Validate Branch Naming
         run: python ./branch/validate_branch_naming.py
+      - name: Validate Repo Naming
+        run: python ./repository/validate_repository_naming.py
