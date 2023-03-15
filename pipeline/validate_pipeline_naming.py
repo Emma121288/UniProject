@@ -1,4 +1,5 @@
 import re
+import os
 
 def validate_pipeline_name(pipeline_name):
     # Rule 1: Start with repo name - eg security, data, ai, ml, etc
@@ -21,9 +22,12 @@ def validate_pipeline_name(pipeline_name):
 
     return True
 
-# Example usage
-pipeline_name = "ai-apply-sqlserver-cu"
-if validate_pipeline_name(pipeline_name):
-    print(f"{pipeline_name} is a valid pipeline name")
-else:
-    print(f"{pipeline_name} is not a valid pipeline name")
+if __name__ == "__main__":
+    pipeline_name = "ai-apply-sqlserver-cu"
+    if validate_pipeline_name(pipeline_name):
+        print(f"{pipeline_name} is a valid pipeline name")
+        os.environ["CI_COMMIT_PIPELINE"] = pipeline_name
+    else:
+        print(f"{pipeline_name} is not a valid pipeline name")
+        exit(1)
+
