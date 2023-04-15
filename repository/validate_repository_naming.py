@@ -28,11 +28,13 @@ repo_name1 = "Security.Infrastructure"
 repo_name2 = "Data.Config"
 repo_name3 = "AI.PE"
 repo_name4 = "Security.Data.Infrastructure"
+repo_name5 = "Uni.Project"
 
 # print results
 print(validate_repo_name(repo_name1))
 print(validate_repo_name(repo_name2))
 print(validate_repo_name(repo_name3))
 print(validate_repo_name(repo_name4))
+print(validate_repo_name(repo_name5)
 
 
