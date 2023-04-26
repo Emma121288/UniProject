@@ -58,14 +58,31 @@ def validate_branch_name(branch_name):
     return True
 
 if __name__ == "__main__":
-    branch_name = os.environ.get("CI_COMMIT_BRANCH")
-    if branch_name:
-        if validate_branch_name(branch_name):
-            print(f"Branch name '{branch_name}' is valid")
-        else:
-            print(f"Branch name '{branch_name}' is invalid")
-            exit(1)
+    example_branch_name = "bacchus/feature/721023-D278ImplementnewFeature"
+    example_branch_name2 = "bacchus/feature/55325-AbcdefGhijklMnopqrs"
+    example_branch_name_breaking_convention = "bacchus12345/featuretobeimplemented/44324-abcdef"
+    example_branch_name_breaking_convention2 = "bacchus12345/featuretobeimplemented/44324-abcdef-ghijklmnop"
+
+    # validate example branch names
+    if validate_branch_name(example_branch_name):
+        print(f"Branch name '{example_branch_name}' is valid")
     else:
-        print("CI_COMMIT_BRANCH environment variable is not set")
-        exit(1)
+        print(f"Branch name '{example_branch_name}' is invalid")
+
+    if validate_branch_name(example_branch_name2):
+        print(f"Branch name '{example_branch_name2}' is valid")
+    else:
+        print(f"Branch name '{example_branch_name2}' is invalid")
+
+    # validate example invalid branch names
+    if validate_branch_name(example_branch_name_breaking_convention):
+        print(f"Branch name '{example_branch_name_breaking_convention}' is valid")
+    else:
+        print(f"Branch name '{example_branch_name_breaking_convention}' is invalid")
+
+    if validate_branch_name(example_branch_name_breaking_convention2):
+        print(f"Branch name '{example_branch_name_breaking_convention2}' is valid")
+    else:
+        print(f"Branch name '{example_branch_name_breaking_convention2}' is invalid")
+
 
