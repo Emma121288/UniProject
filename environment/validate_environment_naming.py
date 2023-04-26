@@ -1,8 +1,13 @@
 import os
+import configparser
 import re
 
+# Load configuration
+config = configparser.ConfigParser()
+config.read('config.ini')
+
 def validate_environment_name(env_name):
-    env_name_regex = re.compile(r"^[a-z]{2,5}-[0-9]{3}$")
+    env_name_regex = re.compile(config['regex']['environment_name_regex'])
     return bool(env_name_regex.match(env_name))
 
 if __name__ == "__main__":
