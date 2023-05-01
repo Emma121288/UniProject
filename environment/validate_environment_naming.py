@@ -27,8 +27,10 @@ if __name__ == "__main__":
 example_environment_name1 = "sec-001"
 example_environment_name2 = "dev-002"
 example_environment_name3 = "qa-001"
+example_environment_name4 = "908-new-environment"
 
 # print results
 print(validate_environment_name(example_environment_name1))
 print(validate_environment_name(example_environment_name2))
 print(validate_environment_name(example_environment_name3))
+print(validate_environment_name(example_environment_name4))
