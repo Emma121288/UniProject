@@ -23,15 +23,25 @@ if __name__ == "__main__":
     pipeline_name_2 = "qa-testing"
     pipeline_name_3 = "New-pipeline123"
     pipeline_name_4 = "TeamQA-pipeline/321"
-    if validate_pipeline_name(pipeline_name):
+    if validate_pipeline_name(pipeline_name_1):
         print(f"{pipeline_name_1} is a valid pipeline name")
-        print(f"{pipeline_name_2} is a valid pipeline name")
-        print(f"{pipeline_name_3} is a valid pipeline name")
-        print(f"{pipeline_name_4} is a valid pipeline name")
     else:
         print(f"{pipeline_name_1} is not a valid pipeline name")
+        
+    if validate_pipeline_name(pipeline_name_2):
+        print(f"{pipeline_name_2} is a valid pipeline name")
+    else:
         print(f"{pipeline_name_2} is not a valid pipeline name")
+        
+    if validate_pipeline_name(pipeline_name_3):
+        print(f"{pipeline_name_3} is a valid pipeline name")
+    else:
         print(f"{pipeline_name_3} is not a valid pipeline name")
+        
+    if validate_pipeline_name(pipeline_name_4):
+        print(f"{pipeline_name_4} is a valid pipeline name")
+    else:
         print(f"{pipeline_name_4} is not a valid pipeline name")
+
 
 
