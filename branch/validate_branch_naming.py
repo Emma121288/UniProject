@@ -18,7 +18,7 @@ def validate_branch_name(branch_name):
 
     branch_name_split = branch_name.split("/")
     num_parts = len(branch_name_split)
-    if num_parts != 2 and num_parts != 3:
+    if num_parts != 3:
         return False
 
     team_name = branch_name_split[0]
