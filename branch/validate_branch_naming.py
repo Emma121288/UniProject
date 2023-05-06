@@ -5,54 +5,28 @@ from configparser import ConfigParser
 config = ConfigParser()
 config.read('config.ini')
 
-acronym_set = set(config.get('settings', 'acronym_set').split(','))
-category = set(config.get('settings', 'category').split(','))
 team_name_regex = re.compile(config.get('regex', 'team_name_regex'))
 work_category_regex = re.compile(config.get('regex', 'work_category_regex'))
 task_number_regex = re.compile(config.get('regex', 'task_number_regex'))
 task_description_regex = re.compile(config.get('regex', 'task_description_regex'))
 
 def validate_branch_name(branch_name):
-    if branch_name == 'main':
-        return True
-
-    branch_name_split = branch_name.split("/")
-    if len(branch_name_split) != 3:
-        return False
-
-    team_name = branch_name_split[0]
-    work_category = branch_name_split[1]
-    task = branch_name_split[2].split("-")
-    if len(task) != 2:
-        return False
-
-    task_number = task[0]
-    task_description = task[1]
+    team_name, work_category, task_number, task_description = branch_name.split("/")
 
     # validate team name
-    team_name_match = team_name_regex.match(team_name)
-    if not team_name_match:
+    if not team_name_regex.match(team_name):
         return False
 
     # validate work category
-    work_category_match = work_category_regex.match(work_category)
-    if not work_category_match:
+    if not work_category_regex.match(work_category):
         return False
 
     # validate task number
-    task_number_match = task_number_regex.match(task_number)
-    if not task_number_match:
+    if not task_number_regex.match(task_number):
         return False
 
     # validate task description
-    task_description_match = task_description_regex.match(task_description)
-    if not task_description_match:
-        return False
-
-    # validate branch name
-    if work_category in category:
-        pass
-    else:
+    if not task_description_regex.match(task_description):
         return False
 
     return True
