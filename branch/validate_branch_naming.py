@@ -18,22 +18,18 @@ def validate_branch_name(branch_name):
     if branch_name == 'main':
         return True
 
-    branch_name_split = branch_name.split("/")
-    if len(branch_name_split) != 3:
+    branch_name_split = branch_name.split("-")
+    if len(branch_name_split) != 4:
         return False
 
-    team_name = branch_name_split[0]
+    task_number = branch_name_split[0]
     work_category = branch_name_split[1]
-    task = branch_name_split[2].split("-")
-    if len(task) != 2:
-        return False
+    team_name = branch_name_split[2]
+    task_description = branch_name_split[3]
 
-    task_number = task[0]
-    task_description = task[1]
-
-    # validate team name
-    team_name_match = team_name_regex.match(team_name)
-    if not team_name_match:
+    # validate task number
+    task_number_match = task_number_regex.match(task_number)
+    if not task_number_match:
         return False
 
     # validate work category
@@ -41,9 +37,9 @@ def validate_branch_name(branch_name):
     if not work_category_match:
         return False
 
-    # validate task number
-    task_number_match = task_number_regex.match(task_number)
-    if not task_number_match:
+    # validate team name
+    team_name_match = team_name_regex.match(team_name)
+    if not team_name_match:
         return False
 
     # validate task description
@@ -52,7 +48,7 @@ def validate_branch_name(branch_name):
         return False
 
     # validate branch name
-    if work_category in category:
+    if work_category.lower() in category:
         pass
     else:
         return False
