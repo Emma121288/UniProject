@@ -5,6 +5,7 @@ from configparser import ConfigParser
 config = ConfigParser()
 config.read('config.ini')
 
+#regular expressions from config.ini
 acronym_set = set(config.get('settings', 'acronym_set').split(','))
 category = set(config.get('settings', 'category').split(','))
 team_name_regex = re.compile(config.get('regex', 'team_name_regex'))
@@ -12,6 +13,7 @@ work_category_regex = re.compile(config.get('regex', 'work_category_regex'))
 task_number_regex = re.compile(config.get('regex', 'task_number_regex'))
 task_description_regex = re.compile(config.get('regex', 'task_description_regex'))
 
+#define validate branch function
 def validate_branch_name(branch_name):
     if branch_name == 'main':
         return True
@@ -60,6 +62,7 @@ def validate_branch_name(branch_name):
 
     return True
 
+#set environment variable and validate if the branch name meets conventions
 if __name__ == "__main__":
     branch_name = os.environ.get("CI_COMMIT_BRANCH")
     if branch_name:
