@@ -16,7 +16,7 @@ def validate_branch_name(branch_name):
     if branch_name == 'main':
         return True
 
-    branch_name_split = branch_name.split("/")
+    branch_name_split = branch_name.split("-")
     num_parts = len(branch_name_split)
     if num_parts != 3:
         return False
@@ -27,7 +27,7 @@ def validate_branch_name(branch_name):
     task_description = ""
 
     if num_parts == 3:
-        task_parts = branch_name_split[2].split("-")
+        task_parts = branch_name_split[2].split("/")
         if len(task_parts) != 2:
             return False
         task_number, task_description = task_parts
