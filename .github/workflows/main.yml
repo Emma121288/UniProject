@@ -9,12 +9,12 @@ jobs:
   validate_branch_naming:
     runs-on: ubuntu-latest
     steps:
-    
       - name: Set CI_COMMIT_BRANCH environment variable
         run: echo "CI_COMMIT_BRANCH=$(echo ${GITHUB_REF#refs/heads/})" >> $GITHUB_ENV
 
       - name: Checkout Code
         uses: actions/checkout@v2
+
       - name: Install Python
         uses: actions/setup-python@v2
         with:
@@ -29,3 +29,4 @@ jobs:
         run: python ./environment/validate_environment_naming.py
       - name: Validate Pipeline Naming
         run: python ./pipeline/validate_pipeline_naming.py
+

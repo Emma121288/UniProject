@@ -18,18 +18,21 @@ def validate_branch_name(branch_name):
     if branch_name == 'main':
         return True
 
-    branch_name_split = branch_name.split("/")
-    if len(branch_name_split) != 3:
+    branch_name_split = branch_name.split("-")
+    num_parts = len(branch_name_split)
+    if num_parts != 3:
         return False
 
     team_name = branch_name_split[0]
     work_category = branch_name_split[1]
-    task = branch_name_split[2].split("-")
-    if len(task) != 2:
-        return False
+    task_number = ""
+    task_description = ""
 
-    task_number = task[0]
-    task_description = task[1]
+    if num_parts == 3:
+        task_parts = branch_name_split[2].split("/")
+        if len(task_parts) != 2:
+            return False
+        task_number, task_description = task_parts
 
     # validate team name
     team_name_match = team_name_regex.match(team_name)
