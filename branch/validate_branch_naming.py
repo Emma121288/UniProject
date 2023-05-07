@@ -72,3 +72,5 @@ if __name__ == "__main__":
         print("CI_COMMIT_BRANCH environment variable is not set")
         exit(1)
 
+
+
