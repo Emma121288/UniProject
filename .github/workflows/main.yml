@@ -19,19 +19,14 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: 3.11
-
       - name: Install Dependencies
         run: pip install -r requirements.txt
-
       - name: Validate Branch Naming
         run: python ./branch/validate_branch_naming.py
-
       - name: Validate Repository Naming
         run: python ./repository/validate_repository_naming.py
-
       - name: Validate Environment Naming
         run: python ./environment/validate_environment_naming.py
-
       - name: Validate Pipeline Naming
         run: python ./pipeline/validate_pipeline_naming.py
 
